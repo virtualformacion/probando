@@ -4,7 +4,7 @@ const USERS = [
     { username: "luis", password: "stream", expiresAt: new Date("2025-09-29") }
 ];
 
-const MAX_ATTEMPTS = 3;
+const MAX_ATTEMPTS = 300000;
 const BLOCK_HOURS = 24;
 
 // ========== LOGIN ==========
@@ -44,7 +44,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 
     // Validar expiración
     if (now > new Date(user.expiresAt)) {
-        message.textContent = "Tu cuenta ha expirado.";
+        message.textContent = "Tu usuario ha vencido, contacta a soporte para renovar tu servicio.";
         return;
     }
 
